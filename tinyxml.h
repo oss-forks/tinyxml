@@ -1442,6 +1442,11 @@ public:
 		file location. Streaming may be added in the future.
 	*/
 	bool LoadFile( FILE*, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
+	/** Loads XML from the given buffer.
+		Please note that this method modifies the input buffer!
+		Returns true if successful.
+	*/
+	bool LoadBuffer( char *buf, size_t length, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
 	/// Save a file using the given FILE*. Returns true if successful.
 	bool SaveFile( FILE* ) const;
 
