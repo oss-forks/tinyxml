@@ -245,6 +245,14 @@ public:
 	int Row() const			{ return location.row + 1; }
 	int Column() const		{ return location.col + 1; }	///< See Row()
 
+	/** Return a pointer to the Document this node lives in.
+		Returns null if not in a document.
+	*/
+	virtual const TiXmlDocument* GetDocument() const = 0;
+	TiXmlDocument* GetDocument() {
+		return const_cast< TiXmlDocument* >( (const_cast< const TiXmlBase* >(this))->GetDocument() );
+	}
+
 	void  SetUserData( void* user )			{ userData = user; }	///< Set a pointer to arbitrary user data.
 	void* GetUserData()						{ return userData; }	///< Get a pointer to arbitrary user data.
 	const void* GetUserData() const 		{ return userData; }	///< Get a pointer to arbitrary user data.
@@ -872,6 +880,14 @@ public:
 		Print( cfile, depth, 0 );
 	}
 	void Print( FILE* cfile, int depth, TIXML_STRING* str ) const;
+
+	/** Return a pointer to the Document this node lives in.
+		Returns null if not in a document.
+	*/
+	const TiXmlDocument* GetDocument() const { return document; }
+	TiXmlDocument* GetDocument() {
+		return const_cast< TiXmlDocument* >( (const_cast< const TiXmlAttribute* >(this))->GetDocument() );
+	}
 
 	// [internal use]
 	// Set the document pointer so the attribute can report errors.
