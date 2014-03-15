@@ -1,8 +1,12 @@
 
+public_headers
+{
+	tinyxml.h
+}
+
 sources
 {
 	tinyxml.cpp
-	tinyxml.h
 	tinyxmlerror.cpp
 	tinyxmlparser.cpp
 }
