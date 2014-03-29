@@ -1451,6 +1451,7 @@ public:
 		Please note that this method modifies the input buffer!
 		Returns true if successful.
 	*/
+	bool LoadBuffer( const char *buf, size_t length, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
 	bool LoadBuffer( char *buf, size_t length, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
 	/// Save a file using the given FILE*. Returns true if successful.
 	bool SaveFile( FILE* ) const;

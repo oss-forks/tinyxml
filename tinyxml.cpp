@@ -1060,6 +1060,16 @@ bool TiXmlDocument::LoadFile( FILE* file, TiXmlEncoding encoding )
 	return result;
 }
 
+bool TiXmlDocument::LoadBuffer( const char *buf, size_t length, TiXmlEncoding encoding )
+{
+	// Delete the existing data
+	Clear();
+	location.Clear();
+
+	Parse( buf, 0, encoding );
+
+	return !Error();
+}
 
 bool TiXmlDocument::LoadBuffer( char *buf, size_t length, TiXmlEncoding encoding )
 {
