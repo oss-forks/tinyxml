@@ -32,3 +32,8 @@ sources
 	tinyxmlerror.cpp
 	tinyxmlparser.cpp
 }
+
+app_sources
+{
+	xmltest.cpp
+}
